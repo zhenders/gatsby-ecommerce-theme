@@ -38,7 +38,7 @@ function sendToAnalytics(metric) {
   await ably.connection.once('connected'); 
   console.log('Connected to Ably!');
 
-  const channel = realtime.channels.get('webvitals');
+  const channel = ably.channels.get('webvitals');
 
   await channel.publish(body);
 }                
