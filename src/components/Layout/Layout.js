@@ -25,11 +25,9 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
           charset="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
-        <script src="https://cdn.ably.com/lib/ably.min-1.js"></script>
         <script
-          src="https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js"
+          src="https://cdn.ably.com/lib/ably.min-1.js"
           onload="(function() {
-    
   const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
   async function doPubSub() {
   await ably.connection.once('connected'); 
@@ -39,7 +37,13 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
 
   await channel.publish('update',metric);
 } 
-
+})()"
+        ></script>
+        <script
+          src="https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js"
+          onload="(function() {
+    
+  
 function sendToAnalytics(metric) {
   
   console.log(metric);  
