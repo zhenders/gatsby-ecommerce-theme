@@ -31,7 +31,6 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
           onload="(function() {
 function sendToAnalytics(metric) {
   
-  //const body = JSON.stringify(metric);
   console.log(metric);  
   const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
   
