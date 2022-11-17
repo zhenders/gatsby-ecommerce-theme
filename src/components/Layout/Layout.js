@@ -33,10 +33,16 @@ function sendToAnalytics(metric) {
 
   const body = JSON.stringify(metric);
   const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
-await ably.connection.once('connected');
-console.log('Connected to Ably!');const channel = ably.channels.get('webvitals');
-  channel.publish(body);                                                                                  
-                                                                                   
+  
+  async function doPubSub() {
+  await ably.connection.once('connected'); 
+  console.log('Connected to Ably!');
+
+  const channel = realtime.channels.get('webvitals');
+
+  await channel.publish(body);
+}                
+                                                                                                                                                                                    
 }
 webVitals.onCLS(sendToAnalytics);
 webVitals.onFID(sendToAnalytics);
