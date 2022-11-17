@@ -49,8 +49,6 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
  var script = document.createElement('script');
   script.src = 'https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js';
   script.onload = function() {
-    // When loading `web-vitals` using a classic script, all the public
-    // methods can be found on the `webVitals` global namespace.
     webVitals.onCLS(sendToAnalytics);
     webVitals.onFID(sendToAnalytics);
     webVitals.onLCP(sendToAnalytics);
