@@ -25,19 +25,18 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
           charset="UTF-8"
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
         />
-        <script src="https://cdn.ably.com/lib/ably.min-1.js">
-          const ably = new
-          Ably.Realtime.Promise('JjJuZA.L_Iu1A:5vTBWNz5LBwGS2jLv_8Z5nRwZxnjydLhznAu91sR8HM');
-          await ably.connection.once('connected'); console.log('Connected to
-          Ably!'); const channel = ably.channels.get('quickstart');
-        </script>
+        <script src="https://cdn.ably.com/lib/ably.min-1.js"></script>
         <script
           src="https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js"
           onload="(function() {
 function sendToAnalytics(metric) {
 
   const body = JSON.stringify(metric);
-
+  const ably = new
+          Ably.Realtime.Promise('JjJuZA.L_Iu1A:5vTBWNz5LBwGS2jLv_8Z5nRwZxnjydLhznAu91sR8HM');
+          await ably.connection.once('connected'); console.log('Connected to
+          Ably!'); 
+          const channel = ably.channels.get('webvitals');
   channel.publish(body);                                                                                  
                                                                                    
 }
