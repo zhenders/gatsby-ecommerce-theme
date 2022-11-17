@@ -42,8 +42,9 @@ function sendToAnalytics(metric) {
 
   await channel.publish(body);
 }                
-                                                                                                                                                                                    
+doPubSub();                                                                                                                                                                                    
 }
+                            
 webVitals.onCLS(sendToAnalytics);
 webVitals.onFID(sendToAnalytics);
 webVitals.onLCP(sendToAnalytics);
