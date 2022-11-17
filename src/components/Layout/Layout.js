@@ -31,8 +31,8 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
           onload="(function() {
 function sendToAnalytics(metric) {
   
-  const body = JSON.stringify(metric);
-  console.log(body);  
+  //const body = JSON.stringify(metric);
+  console.log(metric);  
   const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
   
   async function doPubSub() {
@@ -41,7 +41,7 @@ function sendToAnalytics(metric) {
 
   const channel = ably.channels.get('webvitals');
 
-  await channel.publish(body);
+  await channel.publish('update',metric);
 }                
 doPubSub();                                                                                                                                                                                    
 }
