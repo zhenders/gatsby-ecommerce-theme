@@ -41,9 +41,9 @@ function sendToAnalytics(metric) {
   channel.publish(body);                                                                                  
                                                                                    
 }
-onCLS(sendToAnalytics);
-onFID(sendToAnalytics);
-onLCP(sendToAnalytics);
+webVitals.onCLS(sendToAnalytics);
+webVitals.onFID(sendToAnalytics);
+webVitals.onLCP(sendToAnalytics);
   })()"
         ></script>
       </Helmet>
