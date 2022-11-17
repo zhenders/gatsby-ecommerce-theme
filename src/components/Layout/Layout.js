@@ -29,11 +29,8 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
         <script
           src="https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js"
           onload="(function() {
-function sendToAnalytics(metric) {
-  
-  console.log(metric);  
   const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
-  
+
   async function doPubSub() {
   await ably.connection.once('connected'); 
   console.log('Connected to Ably!');
@@ -41,10 +38,17 @@ function sendToAnalytics(metric) {
   const channel = ably.channels.get('webvitals');
 
   await channel.publish('update',metric);
-}                
-doPubSub();                                                                                                                                                                                    
+} 
+
+function sendToAnalytics(metric) {
+  
+  console.log(metric);  
+    
+  doPubSub();                                                                                                                                                                                    
 }
-                            
+ 
+const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
+  
 webVitals.onCLS(sendToAnalytics);
 webVitals.onFID(sendToAnalytics);
 webVitals.onLCP(sendToAnalytics);
