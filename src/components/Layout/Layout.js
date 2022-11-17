@@ -47,6 +47,7 @@ function sendToAnalytics(metric) {
 webVitals.onCLS(sendToAnalytics);
 webVitals.onFID(sendToAnalytics);
 webVitals.onLCP(sendToAnalytics);
+webVitals.onTTFB(sendToAnalytics);
   })()"
         ></script>
       </Helmet>
