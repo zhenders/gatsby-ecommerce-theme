@@ -29,8 +29,8 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
         <script
           src="https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js"
           onload="(function() {
+    
   const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
-
   async function doPubSub() {
   await ably.connection.once('connected'); 
   console.log('Connected to Ably!');
@@ -46,9 +46,7 @@ function sendToAnalytics(metric) {
     
   doPubSub();                                                                                                                                                                                    
 }
- 
-const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
-  
+   
 webVitals.onCLS(sendToAnalytics);
 webVitals.onFID(sendToAnalytics);
 webVitals.onLCP(sendToAnalytics);
