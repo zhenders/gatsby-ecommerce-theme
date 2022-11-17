@@ -29,6 +29,7 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
           src="https://cdn.ably.com/lib/ably.min-1.js"
           onload="(function() {
   const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
+  
   async function doPubSub() {
   await ably.connection.once('connected'); 
   console.log('Connected to Ably!');
@@ -37,25 +38,26 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
 
   await channel.publish('update',metric);
 } 
-})()"
-        ></script>
-        <script
-          src="https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js"
-          onload="(function() {
-    
   
-function sendToAnalytics(metric) {
+  function sendToAnalytics(metric) {
   
   console.log(metric);  
     
   doPubSub();                                                                                                                                                                                    
 }
-   
-webVitals.onCLS(sendToAnalytics);
-webVitals.onFID(sendToAnalytics);
-webVitals.onLCP(sendToAnalytics);
-webVitals.onTTFB(sendToAnalytics);
-  })()"
+                                                                     
+ var script = document.createElement('script');
+  script.src = 'https://unpkg.com/web-vitals@3/dist/web-vitals.iife.js';
+  script.onload = function() {
+    // When loading `web-vitals` using a classic script, all the public
+    // methods can be found on the `webVitals` global namespace.
+    webVitals.onCLS(sendToAnalytics);
+    webVitals.onFID(sendToAnalytics);
+    webVitals.onLCP(sendToAnalytics);
+  }
+  document.head.appendChild(script);                                                                    
+                                                                     
+})()"
         ></script>
       </Helmet>
 
