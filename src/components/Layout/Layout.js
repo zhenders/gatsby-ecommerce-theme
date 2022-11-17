@@ -32,11 +32,9 @@ const Layout = ({ props, children, disablePaddingBottom = false }) => {
 function sendToAnalytics(metric) {
 
   const body = JSON.stringify(metric);
-  const ably = new
-          Ably.Realtime.Promise('JjJuZA.L_Iu1A:5vTBWNz5LBwGS2jLv_8Z5nRwZxnjydLhznAu91sR8HM');
-          await ably.connection.once('connected'); console.log('Connected to
-          Ably!'); 
-          const channel = ably.channels.get('webvitals');
+  const ably = new Ably.Realtime.Promise('3ZloEQ.73SWWA:GtjV15FjbuQYXZpV8L1lPbzMLD2eVJbfQPJrEXRVa9A');
+await ably.connection.once('connected');
+console.log('Connected to Ably!');const channel = ably.channels.get('webvitals');
   channel.publish(body);                                                                                  
                                                                                    
 }
